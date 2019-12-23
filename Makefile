@@ -23,7 +23,7 @@ PROJECT := antd-todo-example
 PROJECT_PORT := 3000
 
 PYTHON_VERSION=3.8.0
-NODE_VERSION=10.16.3
+NODE_VERSION=12.13.0
 PYENV_NAME="${PROJECT}"
 
 # Configuration.
@@ -86,7 +86,7 @@ setup:
 	$(PIPENV_RUN) pre-commit install
 	$(PIPENV_RUN) pre-commit install -t pre-push
 	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
-	@[[ -e ".env" ]] || cp -rf .env.example .env
+	@[ -e ".env" ] || cp -rf .env.example .env
 	@echo ${MESSAGE_HAPPY}
 
 environment:
