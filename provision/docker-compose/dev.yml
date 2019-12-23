@@ -1,0 +1,42 @@
+# Docker Compose
+# https://docs.docker.com/compose/
+
+version: '3.6'
+services:
+  # Python
+  app:
+    environment: &environment
+      - STAGE=dev
+    image: luismayta-antd-todo-example-app-dev
+    build:
+      args:
+        stage: dev
+
+  nodejs:
+    ports:
+      - '3000:3000'
+    restart: always
+    image: luismayta-antd-todo-example-node-dev
+    build:
+      context: .
+      dockerfile: provision/docker/nodejs/Dockerfile
+      args:
+        stage: dev
+    volumes:
+      - .:/usr/src
+      - yarn-cache:/root/.yarn-cache
+    env_file:
+      - .env
+
+  check:
+    image: luismayta-antd-todo-example-check-dev
+    environment: *environment
+    build:
+      context: .
+      dockerfile: provision/docker/check/Dockerfile
+      args:
+        stage: dev
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
