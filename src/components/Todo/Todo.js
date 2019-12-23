@@ -1,39 +1,38 @@
-import { DatePicker, Icon, Input, List } from "antd";
-import "antd/dist/antd.css";
-import React from "react";
-
+import { DatePicker, Icon, Input, List } from 'antd';
+import 'antd/dist/antd.css';
+import React from 'react';
 
 export class Todo extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      todos: []
+      todos: [],
     };
   }
 
-  handlePressEnter = e => {
+  handlePressEnter = (e) => {
     // Create a todo object containing its index, content,
     // as well as an empty date
     const todo = {
       index: this.state.todos.length,
       content: e.target.value,
       date: null,
-      dateString: ""
+      dateString: '',
     };
 
     // Add the new todo to our array
     const newTodos = this.state.todos.concat(todo);
 
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
 
     // Clear input
-    e.target.value = "";
+    e.target.value = '';
   };
 
-  removeTodo = index => {
+  removeTodo = (index) => {
     let newTodos = [...this.state.todos];
 
     // Remove element
@@ -46,7 +45,7 @@ export class Todo extends React.Component {
 
     // Update state
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
@@ -58,7 +57,7 @@ export class Todo extends React.Component {
 
     // Initialize the state
     this.setState({
-      todos: newTodos
+      todos: newTodos,
     });
   };
 
@@ -74,9 +73,9 @@ export class Todo extends React.Component {
 
         <List
           // emptyText sets the text to display in an empty list
-          locale={{ emptyText: "No todo items" }}
+          locale={{ emptyText: 'No todo items' }}
           dataSource={this.state.todos}
-          renderItem={item => (
+          renderItem={(item) => (
             <TodoItem
               todo={item}
               removeTodo={this.removeTodo}
@@ -97,7 +96,11 @@ export class TodoItem extends React.Component {
 
   handleDateChange = (date, dateString) => {
     // Update the date when changed
-    this.props.setDate(this.props.todo.index, date, dateString);
+    this.props.setDate(
+      this.props.todo.index,
+      date,
+      dateString,
+    );
   };
 
   render() {
@@ -109,7 +112,11 @@ export class TodoItem extends React.Component {
             onChange={this.handleDateChange}
             value={this.props.todo.date}
           />,
-          <Icon type="close-circle" theme="filled" onClick={this.remove} />
+          <Icon
+            type="close-circle"
+            theme="filled"
+            onClick={this.remove}
+          />,
         ]}
       >
         {this.props.todo.content}
