@@ -3,6 +3,9 @@ import 'antd/dist/antd.css';
 import React from 'react';
 
 export class Todo extends React.Component {
+	public state: any;
+	public setState: any;
+
   constructor() {
     super();
 
@@ -89,6 +92,7 @@ export class Todo extends React.Component {
 }
 
 export class TodoItem extends React.Component {
+	public props: any;
   remove = () => {
     // Remove this TodoItem
     this.props.removeTodo(this.props.todo.index);
