@@ -4,22 +4,22 @@ import React from 'react';
 
 export class Todo extends React.Component {
 	public state: any;
-	public setState: any;
+  public setState: any;
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       todos: [],
     };
   }
 
-  handlePressEnter = (e) => {
+  handlePressEnter = (event) => {
     // Create a todo object containing its index, content,
     // as well as an empty date
     const todo = {
       index: this.state.todos.length,
-      content: e.target.value,
+      content: event.target.value,
       date: null,
       dateString: '',
     };
@@ -32,7 +32,7 @@ export class Todo extends React.Component {
     });
 
     // Clear input
-    e.target.value = '';
+    event.target.value = '';
   };
 
   removeTodo = (index) => {
