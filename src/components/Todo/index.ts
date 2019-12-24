@@ -1,3 +1,2 @@
-import { Todo } from './Todo';
-export * from './Todo';
-export default Todo;
+export * from './TodoItem'
+export * from './TodoList'
