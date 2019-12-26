@@ -66,5 +66,4 @@ export class CreateTodoForm extends React.Component<IProps, IState> {
           </React.Fragment>
         );
     }
-
 }

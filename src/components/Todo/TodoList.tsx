@@ -1,5 +1,5 @@
+import { List, Typography } from 'antd';
 import * as React from 'react';
-import TodoItem from '../../container/todoItem';
 import { ITodo, TTodosState } from '../../redux/reducers/todos';
 
 interface IProps {
@@ -12,21 +12,27 @@ interface IState {
 
 export class TodoList extends React.Component<IProps, IState> {
 
-    private items = (): JSX.Element[] => {
+    private items = (): ITodo[] => {
         const { todos } = this.props;
-        return todos.map((todo: ITodo, idx: number) =>
-            <TodoItem key={idx} {...todo} id={idx} />
-        );
+        return todos
     };
 
     public render() {
         return (
-            <div>
-                <ul>
-                    {this.items()}
-                </ul>
-            </div>
+          <React.Fragment>
+            <List
+            header={<div> Todo List </div>}
+            bordered={true}
+            dataSource={this.items()}
+            renderItem={ item => (
+              <List.Item>
+                <Typography.Text
+                  mark={true}>{item.status}
+                 </Typography.Text> {item.text}
+              </List.Item>
+            )}
+            />
+          </React.Fragment>
         );
     }
-
 }
