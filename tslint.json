@@ -9,6 +9,7 @@
     "no-empty-interface": false,
     "no-console": false,
     "member-ordering": false,
+    "jsx-no-lambda": false,
     "object-literal-shorthand": false
   },
   "linterOptions": {
