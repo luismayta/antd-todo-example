@@ -5,6 +5,6 @@ export interface IAppState {
     todos: TTodosState
 }
 
-export default combineReducers<IAppState>({
+export const rootReducers = combineReducers<IAppState>({
     todos
 });

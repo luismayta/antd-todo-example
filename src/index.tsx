@@ -23,12 +23,3 @@ localforage.getItem(STORE_LOCALFORAGE_KEY).then((value: any) => {
 }).catch((err: any) => {
     console.log(err);
 });
-
-// debug
-// localforage.clear().then(() => {
-//     // Run this code once the database has been entirely deleted.
-//     console.log('Database is now empty.');
-// }).catch((err: any) => {
-//     // This code runs if there were any errors
-//     console.log(err);
-// });
