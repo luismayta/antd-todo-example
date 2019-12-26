@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Home } from './components/home';
+import { Home } from './pages';
 
 interface IProps {
     //

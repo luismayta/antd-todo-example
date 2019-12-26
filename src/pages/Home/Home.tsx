@@ -1,9 +1,9 @@
 import * as React from 'react';
-import ClearTodoForm from '../container/forms/clearTodoForm';
-import CreateTodoForm from '../container/forms/createTodoForm';
-import RemoveTodoForm from '../container/forms/removeTodoForm';
-import SaveTodoForm from '../container/forms/saveTodoForm';
-import TodoList from '../container/todoList';
+import ClearTodoForm from '../../container/forms/clearTodoForm';
+import CreateTodoForm from '../../container/forms/createTodoForm';
+import RemoveTodoForm from '../../container/forms/removeTodoForm';
+import SaveTodoForm from '../../container/forms/saveTodoForm';
+import TodoList from '../../container/todoList';
 
 interface IProps {
     //
