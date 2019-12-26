@@ -20,7 +20,6 @@ export class TodoList extends React.Component<IProps, IState> {
     };
 
     public render() {
-
         return (
             <div>
                 <ul>
