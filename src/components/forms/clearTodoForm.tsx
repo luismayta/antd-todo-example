@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import * as React from 'react';
 
 interface IProps {
@@ -17,14 +18,12 @@ export class ClearTodoForm extends React.Component<IProps, IState> {
     };
 
     public render() {
-
         return (
-            <div>
-                <button className="nes-btn is-success" onClick={this.submit}>
-                    Clear
-                </button>
-            </div>
+          <React.Fragment>
+            <Button type="default" onClick={this.submit}>
+                Clear
+            </Button>
+          </React.Fragment>
         );
     }
-
 }

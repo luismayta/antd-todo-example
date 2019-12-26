@@ -1,3 +1,4 @@
+import { Button, Form, Input } from 'antd';
 import * as React from 'react';
 import { ITodo, TodoStatusEnum } from "../../redux/reducers/todos";
 
@@ -47,21 +48,22 @@ export class CreateTodoForm extends React.Component<IProps, IState> {
         const { text } = this.state;
 
         return (
-            <div>
-                <form onSubmit={this.submit}>
-
-                    <label>Task Title</label>
-
-                    <div className="nes-field is-inline">
-                        <input type="text" className="input font-misaki" value={text} onChange={this.onInputTextChange} />
-
-                        <button className="nes-btn is-error" onClick={this.submit}>
-                            Add
-                        </button>
-                    </div>
-
-                </form>
-            </div>
+          <React.Fragment>
+            <Form layout="inline" onSubmit={this.submit}>
+                <Form.Item>
+                    <Input
+                      placeholder="Input of task"
+                      type="text"
+                      value={text}
+                      onChange={this.onInputTextChange} />
+                </Form.Item>
+                <Form.Item>
+                    <Button type="default" onClick={this.submit}>
+                        Add
+                    </Button>
+                </Form.Item>
+            </Form>
+          </React.Fragment>
         );
     }
 

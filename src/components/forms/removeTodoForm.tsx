@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import * as React from 'react';
 
 interface IProps {
@@ -17,14 +18,13 @@ export class RemoveTodoForm extends React.Component<IProps, IState> {
     };
 
     public render() {
-
         return (
-            <div>
-                <button className="nes-btn is-warning" onClick={this.submit}>
-                    Remove Completed Tasks
-                </button>
-            </div>
-        );
+            <React.Fragment>
+              <Button type="default" onClick={this.submit}>
+                Remove Completed Tasks
+              </Button>
+            </React.Fragment>
+      );
     }
 
 }

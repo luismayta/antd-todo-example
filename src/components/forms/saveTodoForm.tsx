@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import * as localforage from 'localforage';
 import * as React from 'react';
 import { STORE_LOCALFORAGE_KEY } from '../../constants';
@@ -27,13 +28,12 @@ export class SaveTodoForm extends React.Component<IProps, IState> {
     };
 
     public render() {
-
         return (
-            <div>
-                <button className="nes-btn is-primary" onClick={this.submit}>
-                    Save
-                </button>
-            </div>
+          <React.Fragment>
+            <Button type="default" onClick={this.submit}>
+                Save
+            </Button>
+          </React.Fragment>
         );
     }
 
