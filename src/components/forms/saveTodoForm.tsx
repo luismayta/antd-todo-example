@@ -8,33 +8,25 @@ interface IProps {
     todos: TTodosState
 }
 
-interface IState {
-    //
-}
+export const SaveTodoForm: React.FC<IProps> = (props) => {
 
-export class SaveTodoForm extends React.Component<IProps, IState> {
+  const handleSubmit = (event: React.FormEvent<any>) : void => {
+    event.preventDefault()
+    const todos = props.todos;
 
-    private submit = (e: React.FormEvent<any>): void => {
-        e.preventDefault();
+    localforage.setItem(STORE_LOCALFORAGE_KEY, { todos }).then((value: any) => {
+        // Do other things once the value has been saved.
+    }).catch((err: any) => {
+        // This code runs if there were any errors
+        console.log(err);
+    });
+  }
 
-        const todos = this.props.todos;
-
-        localforage.setItem(STORE_LOCALFORAGE_KEY, { todos }).then((value: any) => {
-            // Do other things once the value has been saved.
-        }).catch((err: any) => {
-            // This code runs if there were any errors
-            console.log(err);
-        });
-    };
-
-    public render() {
-        return (
-          <React.Fragment>
-            <Button type="default" onClick={this.submit}>
-                Save
-            </Button>
-          </React.Fragment>
-        );
-    }
-
+  return (
+    <React.Fragment>
+      <Button type="default" onClick={handleSubmit}>
+          Save
+      </Button>
+    </React.Fragment>
+  )
 }

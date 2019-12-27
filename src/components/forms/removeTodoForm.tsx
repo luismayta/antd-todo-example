@@ -6,25 +6,19 @@ interface IProps {
     removeTodoAction: any
 }
 
-interface IState {
-    //
-}
 
-export class RemoveTodoForm extends React.Component<IProps, IState> {
+export const RemoveTodoForm: React.FC<IProps> = (props) => {
 
-    private submit = (e: React.FormEvent<any>): void => {
-        e.preventDefault();
-        this.props.removeTodoAction();
-    };
+  const handleSubmit = (event: React.FormEvent<any>): void => {
+      event.preventDefault();
+      props.removeTodoAction();
+  };
 
-    public render() {
-        return (
-            <React.Fragment>
-              <Button type="default" onClick={this.submit}>
-                Remove Completed Tasks
-              </Button>
-            </React.Fragment>
-      );
-    }
-
+  return (
+    <React.Fragment>
+      <Button type="default" onClick={handleSubmit}>
+        Remove Completed Tasks
+      </Button>
+    </React.Fragment>
+  )
 }
