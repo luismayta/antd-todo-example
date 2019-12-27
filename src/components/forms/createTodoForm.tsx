@@ -1,5 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import * as React from 'react';
+import { useState } from 'react';
 import { ITodo, TodoStatusEnum } from "../../redux/reducers/todos";
 
 interface IProps {
@@ -11,59 +12,50 @@ interface IState {
     text: string;
 }
 
-export class CreateTodoForm extends React.Component<IProps, IState> {
+export const CreateTodoForm: React.FC<IProps> = (props) =>{
+  const [ todoValue , setState ] = useState<IState>({text: ''})
 
-    constructor(props : IProps) {
-        super(props);
-        this.state = {
-            text: ''
-        };
+  const handleSubmit = (event : React.FormEvent<any>): void => {
+    event.preventDefault();
+
+    if (!todoValue.text.length) {
+        return;
     }
 
-    private onInputTextChange = (e: React.ChangeEvent<any>): void => {
-        this.setState({
-            text: e.target.value
-        });
+    const todo: ITodo = {
+        status: TodoStatusEnum.pending,
+        text: todoValue.text
     };
 
-    private submit = (e: React.FormEvent<any>): void => {
-        e.preventDefault();
-        const { text } = this.state;
-        if (!text.length) {
-            return;
-        }
+    props.addTodoAction(todo);
 
-        const todo: ITodo = {
-            status: TodoStatusEnum.pending,
-            text: text
-        };
-        this.props.addTodoAction(todo);
-        this.setState({
-            text: ''
-        });
-    };
+    setState({
+        text: ''
+    });
+  }
 
-    public render() {
+  const handleInputTextChange = (event: React.ChangeEvent<any>): void => {
+      setState({
+          text: event.target.value
+      });
+  };
 
-        const { text } = this.state;
-
-        return (
-          <React.Fragment>
-            <Form layout="inline" onSubmit={this.submit}>
-                <Form.Item>
-                    <Input
-                      placeholder="Input of task"
-                      type="text"
-                      value={text}
-                      onChange={this.onInputTextChange} />
-                </Form.Item>
-                <Form.Item>
-                    <Button type="default" onClick={this.submit}>
-                        Add
-                    </Button>
-                </Form.Item>
-            </Form>
-          </React.Fragment>
-        );
-    }
+  return (
+      <React.Fragment>
+        <Form layout="inline" onSubmit={handleSubmit}>
+            <Form.Item>
+                <Input
+                  placeholder="Input of task"
+                  type="text"
+                  value={todoValue.text}
+                  onChange={handleInputTextChange} />
+            </Form.Item>
+            <Form.Item>
+                <Button type="default" onClick={handleSubmit}>
+                    Add
+                </Button>
+            </Form.Item>
+        </Form>
+      </React.Fragment>
+  )
 }

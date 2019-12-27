@@ -2,28 +2,21 @@ import { Button } from 'antd';
 import * as React from 'react';
 
 interface IProps {
-    // TODO: types
     clearAction: any
 }
 
-interface IState {
-    //
-}
+export const ClearTodoForm: React.FC <IProps> = (props) => {
 
-export class ClearTodoForm extends React.Component<IProps, IState> {
+  const handleSubmit = (event: React.FormEvent<any>): void => {
+    event.preventDefault()
+    props.clearAction()
+  }
 
-    private submit = (e: React.FormEvent<any>): void => {
-        e.preventDefault();
-        this.props.clearAction();
-    };
-
-    public render() {
-        return (
+  return (
           <React.Fragment>
-            <Button type="default" onClick={this.submit}>
+            <Button type="default" onClick={handleSubmit}>
                 Clear
             </Button>
           </React.Fragment>
         );
-    }
 }
