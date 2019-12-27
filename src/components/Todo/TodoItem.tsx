@@ -7,34 +7,24 @@ interface IProps extends ITodoId, ITodo {
     updateTodoAction: any
 }
 
-interface IState {
-    //
-}
+export const TodoItem: React.FC<IProps> = (props) => {
 
-export class TodoItem extends React.Component<IProps, IState> {
+  const {id, text, status } = props;
+  const isCompleted = (status === TodoStatusEnum.completed);
+  const itemFlag = ClassNames('nes-icon', 'like', { 'is-empty': !isCompleted });
 
-    private onUpdateTodo = (): void => {
-        const { id, text, status } = this.props;
-        const todo: ITodo = {
+  const handleOnUpdateTodo = (): void => {
+      const todo: ITodo = {
             status: (!status) ? TodoStatusEnum.completed : TodoStatusEnum.pending,
             text
-        };
-
-        this.props.updateTodoAction(todo, id);
-    };
-
-    public render() {
-
-        const { text, status } = this.props;
-        const isCompleted = (status === TodoStatusEnum.completed);
-        const itemFlag = ClassNames('nes-icon', 'like', { 'is-empty': !isCompleted });
-
-        return (
-            <li className="font-misaki" onClick={this.onUpdateTodo}>
-                <i className={itemFlag} />
-                {text}
-            </li>
-        );
-    }
+      };
+      props.updateTodoAction(todo,  id)
+  }
+  return (
+    <li className="font-misaki" onClick={handleOnUpdateTodo}>
+        <i className={itemFlag} />
+        {text}
+    </li>
+  )
 
 }

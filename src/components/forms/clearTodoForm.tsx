@@ -13,10 +13,10 @@ export const ClearTodoForm: React.FC <IProps> = (props) => {
   }
 
   return (
-          <React.Fragment>
-            <Button type="default" onClick={handleSubmit}>
-                Clear
-            </Button>
-          </React.Fragment>
-        );
+    <React.Fragment>
+      <Button type="default" onClick={handleSubmit}>
+          Clear
+      </Button>
+    </React.Fragment>
+    );
 }

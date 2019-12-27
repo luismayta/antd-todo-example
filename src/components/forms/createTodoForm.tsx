@@ -43,18 +43,18 @@ export const CreateTodoForm: React.FC<IProps> = (props) =>{
   return (
       <React.Fragment>
         <Form layout="inline" onSubmit={handleSubmit}>
-            <Form.Item>
-                <Input
-                  placeholder="Input of task"
-                  type="text"
-                  value={todoValue.text}
-                  onChange={handleInputTextChange} />
-            </Form.Item>
-            <Form.Item>
-                <Button type="default" onClick={handleSubmit}>
-                    Add
-                </Button>
-            </Form.Item>
+          <Form.Item>
+              <Input
+                placeholder="Input of task"
+                type="text"
+                value={todoValue.text}
+                onChange={handleInputTextChange} />
+          </Form.Item>
+          <Form.Item>
+              <Button type="default" onClick={handleSubmit}>
+                  Add
+              </Button>
+          </Form.Item>
         </Form>
       </React.Fragment>
   )

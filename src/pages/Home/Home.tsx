@@ -12,39 +12,32 @@ interface IProps {
     //
 }
 
-interface IState {
-    //
-}
+export const Home : React.FC<IProps> = (props) => {
+  return (
+    <React.Fragment>
+      <Layout>
+        <Typography>
+        <Header>
+            <Title>
+              Sample Todo App
+            </Title>
+            <Paragraph>
+              Using React Framework.
+            </Paragraph>
+        </Header>
 
-export class Home extends React.Component<IProps, IState> {
-
-    public render() {
-        return (
-          <React.Fragment>
-            <Layout>
-              <Typography>
-              <Header>
-                  <Title>
-                    Sample Todo App
-                  </Title>
-                  <Paragraph>
-                    Using React Framework.
-                  </Paragraph>
-              </Header>
-
-              <Content>
-                  <Title level={2}>
-                    Form
-                  </Title>
-                        <CreateTodoForm />
-                        <RemoveTodoForm />
-                        <ClearTodoForm />
-                        <SaveTodoForm />
-                <TodoList />
-              </Content>
-              </Typography>
-            </Layout>
-          </React.Fragment>
-        );
-    }
+        <Content>
+            <Title level={2}>
+              Form
+            </Title>
+                  <CreateTodoForm />
+                  <RemoveTodoForm />
+                  <ClearTodoForm />
+                  <SaveTodoForm />
+          <TodoList />
+        </Content>
+        </Typography>
+      </Layout>
+    </React.Fragment>
+  )
 }
