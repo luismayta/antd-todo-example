@@ -6,7 +6,6 @@ interface IProps {
     removeTodoAction: any
 }
 
-
 export const RemoveTodoForm: React.FC<IProps> = (props) => {
 
   const handleSubmit = (event: React.FormEvent<any>): void => {
