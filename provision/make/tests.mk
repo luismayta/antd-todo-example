@@ -31,4 +31,3 @@ test.validate:
 
 test.lint:
 	$(PIPENV_RUN) pre-commit run --all-files --verbose
-
