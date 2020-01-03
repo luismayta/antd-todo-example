@@ -84,7 +84,7 @@ Execute the next:
 License
 =======
 
-GNU
+MIT
 
 Changelog
 ---------
