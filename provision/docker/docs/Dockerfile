@@ -4,7 +4,7 @@ MAINTAINER Luis Mayta <@slovacus>
 
 ARG stage
 
-LABEL NAME air_pollution-doc
+LABEL NAME antd-todo-example
 
 ENV PACKAGES bash \
   git \
