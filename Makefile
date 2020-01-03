@@ -80,8 +80,6 @@ help:
 
 setup:
 	@echo "=====> install packages..."
-	mkdir -p public
-	touch yarn.lock
 	$(PIPENV_INSTALL) --dev --skip-lock
 	$(PIPENV_RUN) pre-commit install
 	$(PIPENV_RUN) pre-commit install -t pre-push
