@@ -15,7 +15,7 @@
     "eject": "react-scripts-ts eject"
   },
   "dependencies": {
-    "antd": "^3.26.4",
+    "antd": "^3.26.20",
     "classnames": "^2.2.6",
     "localforage": "^1.7.3",
     "react": "^16.12.0",
