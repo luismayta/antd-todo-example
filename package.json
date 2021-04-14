@@ -37,7 +37,7 @@
     "@types/redux-logger": "^3.0.8",
     "@types/redux-saga": "^0.10.5",
     "prettier": "^1.19.1",
-    "redux-devtools-extension": "^2.13.8",
+    "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "typescript": "^3.7.4"
   },
