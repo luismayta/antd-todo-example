@@ -25,7 +25,7 @@ repos:
         args: []
         files: .py$
   - repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
-    rev: v1.1.0
+    rev: v1.1.1
     hooks:
       - id: markdown-toc
   - repo: https://github.com/Lucas-C/pre-commit-hooks-markup
