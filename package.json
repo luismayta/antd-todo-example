@@ -32,7 +32,7 @@
     "@types/node": "^13.13.50",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
-    "@types/react-redux": "^7.1.18",
+    "@types/react-redux": "^7.1.19",
     "@types/redux-actions": "^2.6.2",
     "@types/redux-logger": "^3.0.9",
     "@types/redux-saga": "^0.10.5",
